@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="games" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="_style/layout.css">
+    <title>JS Hearts</title>
+    <style>
+     
+        
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; 
+        box-sizing: border-box;
+      }
+      .menu {
+        float:left;
+        width:20%;
+        text-align:center;
+      }
+      .menuitem {
+        background-color:#e5e5e5;
+        padding:8px;
+        margin-top:7px;
+      }
+      .main {
+        float:left;
+        width:60%;
+        padding:0 20px;
+      }
+      .right {
+        background-color:#e5e5e5;
+        float:left;
+        width:20%;
+        padding:15px;
+        margin-top:7px;
+        text-align:center;
+      }
+      
+      #hideme{
+    border:solid 1px #000;
+    background:#ccc;
+    padding:20px;
+}
+
+
+@-webkit-keyframes fadeout{
+    0%{opacity:1;visibility:visible;}
+    99%{opacity:0;}
+    100%{opacity:0;visibility: hidden;}
+}
+.fadeout {
+    -webkit-animation:fadeout 1s linear;
+    visibility:hidden;
+}
+@-webkit-keyframes fadein{
+    0%{opacity:0;visibility:visible;}
+    100%{opacity:1;}
+}
+.fadein {
+    -webkit-animation:fadein 1s linear;
+}
+      
+      .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        }
+      .button1 {
+            background-color: yellowgreen; 
+            color: black; 
+            border: 2px solid #4CAF50;
+        }
+        .button1:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .button1.visible{
+            visibility: visible
+        }
+        .button1.hidden{
+            visibility: hidden
+        }
+        
+      #grad1 {background: linear-gradient(green, black); /* Standard syntax (must be last) */
+              .button {
+    
+}
+      
+    </style>
+    
+</head>
+<body bgcolor="green" id="documentBody">
+<!--<body id="grad1">-->
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <input type="submit" value="Test" name="btnTest" id="btndemo"/>
+    <input type="submit" value="Test" name="btnTest2" id="btndemo2" />
+    <input type="submit" value="Go to Next Round" name="btnTest3" id="btndemo3" onclick="fadeInCommandButton()"/>
+
+  <h5 class="w3-bar-item" id="pLog">Events:</h5>  
+</div>
+
+<!-- Page Content -->
+<div style="margin-left:25%">
+
+    <div class="w3-container w3-green">
+      <h1>Hearts</h1>
+          
+    </div>
+
+    <div class="w3-container" id="scriptcontainer">
+    <div style="overflow:auto">
+        <div class="menu">
+          <div class="menuitem" id="player0Menu">Link 1</div>
+          <div class="menuitem" id="player1Menu">Link 1</div>
+          <div class="menuitem" id="player2Menu">Link 1</div>
+          <div class="menuitem" id="player3Menu">Link 1</div>
+          <div class="menuitem" id="cardsWonMenu">Cards Won: </div>
+          <button class="button button1" name="cmdButton" id="cmdButton" onClick="cmdClick()">Start Game</button>
+          <button class="button button1" name="cmdButton" id="cmdComputerEvent" onClick="cmdConductAI()">Play AI</button>
+          <button class="button button1" name="cmdButton" id="cmdAIselectCards" onClick="cmdAIselectCards()">AI select cards</button>
+        </div>
+        <div class="main">
+            
+            <canvas id="myCanvas" width="800" height="800" style="background: url('./_img/back.jpg')">
+                          
+            </canvas>
+        </div>
+    </div>
+
+   <!--<script src="./_js/hearts.js?cachebuster=" + new Date().getTime()></script>-->
+<script>
+   function load_js()
+   {
+      var scriptholder = document.getElementById('scriptcontainer');
+      var script= document.createElement('script');
+      script.type= 'text/javascript';
+      script.src= './_js/hearts.js?' + new Date().getTime();
+      scriptholder.appendChild(script);
+   }
+   load_js();
+</script>
+    </div>
+</div>
+
+</body>
+</html>
